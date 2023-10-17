@@ -10,4 +10,4 @@ JavaIdentifier.java has a:
 - public method scan(String s), which recognize a java identifier,
 - public method isLetter(char ch), which takes a char as argument and check if it's a letter of the Latin alphabet(both capital and not),
 - public method isNumber(char ch), which take a char as argument and check if it's a number(from 0 to 9)
-- private method isAlphabet(char ch), which take a char as argument amd check if it belongs to the identifier alphabet.
+- private method isAlphabet(char ch), which take a char as argument and check if it belongs to the identifier alphabet.
