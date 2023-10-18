@@ -9,13 +9,14 @@ public class Test {
         //Test for NoThreeZero                               WORKS
         //System.out.println(NoThreeZero.scan(s));
 
-
         //Test for JavaIdentifier                            WORKS
         //System.out.println(JavaIdentifier.scan(s));
 
         //Test for SerialNumber                              WORKS
         //System.out.println(SerialNumber.scan(s));
 
+        //Test for ConstantIdentifier                        WORKS
+        //System.out.println(ConstantIdentifier.scan(s));
     }
 
 
