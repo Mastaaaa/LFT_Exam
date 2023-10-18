@@ -22,4 +22,4 @@ Strings accepted are only those of students belonging to T2 and T3. (T2 = serial
 
 (Using {0, ..., 9, +, -, e, .} alphabet)
 ConstantIdentifier.java has a:
-- public method scan(String s), which recognize a mathematic constant in form of (±)x.ye(±)z.w, where the secondo part (e(±)z.w) can be omitted and x, y, z, w belongs to {0, ..., 9}
+- public method scan(String s), which recognize a mathematic constant in form of (±)x.ye(±)z.w, where the second part (e(±)z.w) can be omitted and x, y, z, w belong to {0, ..., 9}
