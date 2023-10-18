@@ -13,7 +13,8 @@ public class Test {
         //Test for JavaIdentifier                            WORKS
         //System.out.println(JavaIdentifier.scan(s));
 
-
+        //Test for SerialNumber                              WORKS
+        //System.out.println(SerialNumber.scan(s));
 
     }
 
