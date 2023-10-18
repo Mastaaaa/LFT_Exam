@@ -11,3 +11,12 @@ JavaIdentifier.java has a:
 - public method isLetter(char ch), which takes a char as argument and check if it's a letter of the Latin alphabet(both capital and not),
 - public method isNumber(char ch), which take a char as argument and check if it's a number(from 0 to 9)
 - private method isAlphabet(char ch), which take a char as argument and check if it belongs to the identifier alphabet.
+
+(Using {0, ..., 9, A, ..., Z, a, ..., z} alphabet)
+SerialNumber.java has a:
+- public method scan(String s), which recognize a sequence of numbers representing student's serial number followed by their surname,
+Strings accepted are only those of students belonging to T2 and T3. (T2 = serial number even and starting surname letter in A-K -- T3 = serial number odd and starting surname letter in L-Z)
+- private T2T3Logic(char ch), takes a char as arguments and check if it's a letter from Latin alphabet, otherwise string is rejected.
+- public static boolean isT3(char ch), take a char as argument and return true if letter is in L-Z,
+- public static boolean isT2(char ch), take a char as argument and return true if letter is in A-K.
+
