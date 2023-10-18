@@ -17,6 +17,9 @@ public class Test {
 
         //Test for ConstantIdentifier                        WORKS
         //System.out.println(ConstantIdentifier.scan(s));
+
+        //Test for CommentIdentifier                         Works
+        //System.out.println(CommentIdentifier.scan(s));
     }
 
 
