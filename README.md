@@ -27,3 +27,9 @@ ConstantIdentifier.java has a:
 (Using {/, *, a} alphabet)
 CommentIdentifier.java has a:
 - public method scan(String s), which recognize if a string is a comment(string starts with /*, ends with */).
+
+(Using {/, *, a} alphabet)
+CommentIdentifierExtended.java has a:
+- public method scan(String s), which extend CommentIdentifier.java, recognizing string with comments in the middle or with no comments at all;
+
+  
