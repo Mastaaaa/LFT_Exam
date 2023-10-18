@@ -5,7 +5,7 @@ NoThreeZero.java has a:
 - public method scan(String s)method, which recognize a string included in the language composed by sequences of {0, 1}, where 0 never appears 3 times in a row.
 
 
-(Using {0, ..., 9, A, ..., Z, a, ..., z, '_'} alphabet)
+(Using {0, ..., 9, A, ..., Z, a, ..., z, _ } alphabet)
 JavaIdentifier.java has a:
 - public method scan(String s), which recognize a java identifier,
 - public method isLetter(char ch), which takes a char as argument and check if it's a letter of the Latin alphabet(both capital and not),
@@ -20,3 +20,6 @@ Strings accepted are only those of students belonging to T2 and T3. (T2 = serial
 - public static boolean isT3(char ch), take a char as argument and return true if letter is in L-Z,
 - public static boolean isT2(char ch), take a char as argument and return true if letter is in A-K.
 
+(Using {0, ..., 9, +, -, e, .} alphabet)
+ConstantIdentifier.java has a:
+- public method scan(String s), which recognize a mathematic constant in form of (±)x.ye(±)z.w, where the second part (e(±)z.w) can be omitted and x, y, z, w belong to {0, ..., 9}
