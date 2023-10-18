@@ -20,6 +20,9 @@ public class Test {
 
         //Test for CommentIdentifier                         Works
         //System.out.println(CommentIdentifier.scan(s));
+
+        //Test for CommentIdentifierExtended                 Works
+        //System.out.println(CommentIdentifierExtended.scan(s));
     }
 
 
