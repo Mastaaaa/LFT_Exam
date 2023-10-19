@@ -122,22 +122,62 @@ public class Lexer {
                 peek = ' ';
                 return Word.init;
 
-	// ... gestire i casi di || < > <= >= == <> ... //             DONE
+	        // ... gestire i casi di || < > <= >= == <> ... //             DONE
           
             case (char)-1:
                 return new Token(Tag.EOF);
 
             default:
-                // ... gestire il caso degli identificatori e delle parole chiave //
+                // ... gestire il caso degli identificatori e delle parole chiave //   DONE
+                //Handle case where I read a number and I skip keyword check?
                 if (Character.isLetter(peek)) {
-                    String temp = "" + peek;
+                    String temp = "";
+                    while(Character.isDigit(peek) || Character.isLetter(peek)){
+                        temp += peek;
+                        readch(br);
+                    }
+                    if(temp.equals(Word.assign.lexeme))
+                        return Word.assign;
+                    if(temp.equals(Word.to.lexeme))
+                        return Word.to;
+                    if(temp.equals(Word.iftok.lexeme))
+                        return Word.iftok;
+                    if(temp.equals(Word.elsetok.lexeme))
+                        return Word.elsetok;
+                    if(temp.equals(Word.dotok.lexeme))
+                        return Word.dotok;
+                    if(temp.equals(Word.fortok.lexeme))
+                        return Word.fortok;
+                    if(temp.equals(Word.begin.lexeme))
+                        return Word.begin;
+                    if(temp.equals(Word.end.lexeme))
+                        return Word.end;
+                    if(temp.equals(Word.print.lexeme))
+                        return Word.print;
+                    if(temp.equals(Word.read.lexeme))
+                        return Word.read;
+                    return new Word(257, temp);
 
-
+                    // ... gestire il caso dei numeri ... //              DONE
                 } else if (Character.isDigit(peek)) {
+                    if(peek == '0'){
+                        readch(br);
+                        if(Character.isDigit(peek)){
+                            System.err.println("Erroneous character"
+                                    + " after : : "  + peek );
+                            return null;
+                        }
+                         return new NumberTok(Tag.NUM,"0");
+                    }
+                    String temp = "" + peek;
+                    while(Character.isDigit(peek)){
+                        readch(br);
+                        temp += peek;
+                    }
+                    return new NumberTok(Tag.NUM, temp);
 
-	// ... gestire il caso dei numeri ... //
-
-                } else {
+                }
+                else {
                         System.err.println("Erroneous character: " 
                                 + peek );
                         return null;
@@ -147,7 +187,7 @@ public class Lexer {
 		
     public static void main(String[] args) {
         Lexer lex = new Lexer();
-        String path = "...path..."; // il percorso del file da leggere
+        String path = "C:\\Users\\danie\\Documents\\Universita'\\Secondo anno\\LFT\\LFT_Exam\\esempio.txt "; // il percorso del file da leggere
         try {
             BufferedReader br = new BufferedReader(new FileReader(path));
             Token tok;

@@ -1,6 +1,5 @@
 public class ConstantIdentifier {
 
-    //TODO: CAMBIARE JAVAIDENTIFIER CON CHARACTER.ISDIGIT, ISLETTER
     public static boolean scan(String s){
         int i = 0;
         int state = 0;
@@ -16,7 +15,7 @@ public class ConstantIdentifier {
                         dot++;
                         state = 2;
                     }
-                    else if(JavaIdentifier.isNumber(ch))
+                    else if(Character.isDigit(ch))
                         state = 6;
                     else
                         state = -1;
@@ -26,19 +25,19 @@ public class ConstantIdentifier {
                         dot++;
                         state = 2;
                     }
-                    else if(JavaIdentifier.isNumber(ch))
+                    else if(Character.isDigit(ch))
                         state = 6;
                     else
                         state = -1;
                     break;
                 case 2:
-                    if(JavaIdentifier.isNumber(ch))
+                    if(Character.isDigit(ch))
                         state = 6;
                     else
                         state = -1;
                     break;
                 case 3:
-                    if(ch == '+' || ch == '-' || JavaIdentifier.isNumber(ch))
+                    if(ch == '+' || ch == '-' || Character.isDigit(ch))
                         state = 4;
                     else
                         state = -1;
@@ -48,19 +47,19 @@ public class ConstantIdentifier {
                         dot++;
                         state = 5;
                     }
-                    else if(JavaIdentifier.isNumber(ch))
+                    else if(Character.isDigit(ch))
                         state = 4;
                     else
                         state = -1;
                     break;
                 case 5:
-                    if(JavaIdentifier.isNumber(ch))
+                    if(Character.isDigit(ch))
                         state = 4;
                     else
                         state = -1;
                     break;
                 case 6:
-                    if(JavaIdentifier.isNumber(ch))
+                    if(Character.isDigit(ch))
                         state = 6;
                     else if(ch == '.' && dot != 1){
                         dot++;
