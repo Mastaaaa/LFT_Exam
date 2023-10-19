@@ -32,7 +32,7 @@ CommentIdentifier has a:
 
 (Using {/, *, a} alphabet)<br />
 CommentIdentifierExtended has a:
-- public method scan(String s), which extend CommentIdentifier.java, recognizing string with comments in the middle or with no comments at all;
+- public method scan(String s), which extends CommentIdentifier.java, recognizing string with comments in the middle or with no comments at all;
 
 
 
