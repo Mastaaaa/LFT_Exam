@@ -2,7 +2,6 @@ import java.util.Scanner;
 public class Test {
     public static void main(String[] args){
 
-    while(true){
         Scanner scan = new Scanner(System.in);
         String s = scan.nextLine();
 
@@ -23,7 +22,6 @@ public class Test {
 
         //Test for CommentIdentifierExtended                 Works
         //System.out.println(CommentIdentifierExtended.scan(s));
-    }
 
 
     }

@@ -1,5 +1,6 @@
 public class JavaIdentifier{
 
+    //TODO: CAMBIARE JAVAIDENTIFIER CON CHARACTER.ISDIGIT, ISLETTER
     public static boolean scan(String s){
         int state = 0;
         int i = 0;

@@ -1,5 +1,6 @@
 public class SerialNumber {
 
+    //TODO: CAMBIARE JAVAIDENTIFIER CON CHARACTER.ISDIGIT, ISLETTER
     public static boolean scan(String s){
         int i = 0;
         int state = 0;
