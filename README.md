@@ -3,18 +3,18 @@
 #First part: Implementig DFA in java
 ------------------------------------------------------------
 
-(Using {0, 1} alphabet)
+(Using {0, 1} alphabet)<br />
 NoThreeZero has a:
 - public method scan(String s)method, which recognize a string included in the language composed by sequences of {0, 1}, where 0 never appears 3 times in a row.
 
-(Using {0, ..., 9, A, ..., Z, a, ..., z, _ } alphabet)
+(Using {0, ..., 9, A, ..., Z, a, ..., z, _ } alphabet)<br />
 JavaIdentifier has a:
 - public method scan(String s), which recognize a java identifier,
 - public method isLetter(char ch), which takes a char as argument and check if it's a letter of the Latin alphabet(both capital and not),
 - public method isNumber(char ch), which take a char as argument and check if it's a number(from 0 to 9)
 - private method isAlphabet(char ch), which take a char as argument and check if it belongs to the identifier alphabet.
 
-(Using {0, ..., 9, A, ..., Z, a, ..., z} alphabet)
+(Using {0, ..., 9, A, ..., Z, a, ..., z} alphabet)<br />
 SerialNumber has a:
 - public method scan(String s), which recognize a sequence of numbers representing student's serial number followed by their surname,
 Strings accepted are only those of students belonging to T2 and T3. (T2 = serial number even and starting surname letter in A-K -- T3 = serial number odd and starting surname letter in L-Z)
@@ -26,11 +26,11 @@ Strings accepted are only those of students belonging to T2 and T3. (T2 = serial
 ConstantIdentifier has a:
 - public method scan(String s), which recognize a mathematic constant in form of (±)x.ye(±)z.w, where the second part (e(±)z.w) can be omitted and x, y, z, w belong to {0, ..., 9}
 
-(Using {/, *, a} alphabet)
+(Using {/, *, a} alphabet)<br />
 CommentIdentifier has a:
 - public method scan(String s), which recognize if a string is a comment(string starts with /*, ends with */).
 
-(Using {/, *, a} alphabet)
+(Using {/, *, a} alphabet)<br />
 CommentIdentifierExtended has a:
 - public method scan(String s), which extend CommentIdentifier.java, recognizing string with comments in the middle or with no comments at all;
 
