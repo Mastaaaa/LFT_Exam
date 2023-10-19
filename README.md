@@ -37,7 +37,7 @@ CommentIdentifierExtended has a:
 
 
 ------------------------------------------------------------
-#Second part: Implementig a lexer in java. The purpose is to read some text, and get as output tokens for every lexical unit.
+#Second part: Implementig a lexer in java. The purpose is to read some text, and get tokens in output for every lexical unit.
 ------------------------------------------------------------
 
 Token has a:
