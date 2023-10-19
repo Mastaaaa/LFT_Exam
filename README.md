@@ -46,7 +46,7 @@ Token has a:
 - public String toString() method, formatting Token class for printing.
 - Some Token constants for mono-simbol token.
 
-//Every token with more than 1 simbol is composed of an int Tag and an int Attribute
+(Every token with more than 1 simbol is composed of an int Tag and an int Attribute)<br>
 Word extends Token has a:
 - public String lexeme attribute, representing attribute of the token,
 - public Word(int tag, String lexeme), initializing this.lexeme attribute to value of lexeme,
