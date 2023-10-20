@@ -91,18 +91,17 @@ public class Lexer {
                     peek = ' ';
                     return Word.ne;
                 }
-                else
-                    return Word.lt;
-                //Maybe can delete else
+                return Word.lt;
+                //TO CHECK: Else delete
+
             case '>':
                 readch(br);
                 if(peek == '='){
                     peek = ' ';
                     return Word.ge;
                 }
-                else{
-                    return Word.gt;
-                }
+                return Word.gt;
+
             case '=':
                 readch(br);
                 if(peek != '='){
@@ -156,7 +155,7 @@ public class Lexer {
                         return Word.print;
                     if(temp.equals(Word.read.lexeme))
                         return Word.read;
-                    return new Word(257, temp);
+                    return new Word(Tag.ID, temp);
 
                     // ... gestire il caso dei numeri ... //              DONE
                 } else if (Character.isDigit(peek)) {
@@ -171,8 +170,8 @@ public class Lexer {
                     }
                     String temp = "" + peek;
                     while(Character.isDigit(peek)){
-                        readch(br);
                         temp += peek;
+                        readch(br);
                     }
                     return new NumberTok(Tag.NUM, temp);
 
