@@ -53,10 +53,9 @@ Word extends Token has a:
 - public String toString() method, formatting Word class for printing.
 - Some Word constants for keyword and double symbol operators.
 
-  Tag is an enumaration of tags for tokens.
+Tag is an enumaration of tags for tokens.
 
-  NumberTok has a:
-  Word extends Token has a:
+NumberTok extends Token has a:
 - public String lexeme attribute, representing attribute of the token,
 - public NumberTok(int tag, String lexeme), initializing this.lexeme attribute to value of lexeme,
 - public String toString() method, formatting NumberTok class for printing.
