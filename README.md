@@ -65,7 +65,10 @@ Lexer.java has a:
 - private char peek attribute, which represent the current char beeing analyzed
 - private void readch(BufferReader br) method, which read the next character in the file,
 - public Token lexical_scan(BufferReader br) method, which analyze the BufferRead searching for tokens. If it can't convert all text in tokens, method prints "Erroneous character" error and return null.<br />
-  (Note that not all aviable chars have a corresponding token implementation, and this lexer does not check correct code structure: "else 5 == print < end" is accepted)
+  (Note that not all aviable chars have a corresponding token implementation, and this lexer does not check correct code structure: "else 5 == print < end" is accepted)<br />
+
+  LexerExtended.java implements correct identifier format(Not starting by number and differnt from '_') and is now able to analyze comments: everything in the comment is skipped by the lexer and no token is
+  generated even symbols does not belog to the alphabet.<br />
   
 
 
