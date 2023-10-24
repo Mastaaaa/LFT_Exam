@@ -25,17 +25,13 @@ public class LexerExtended {
                     //System.out.print("comments started");
                     while(commentOpen){
                         readch(br);
-                        if(peek == '*'){
-                            readch(br);
-                            if(peek == '/'){
-                                commentOpen = false;
-                                peek = ' ';
-                            }
-                            else
-                                continue;
-                        }
-                        else
+                        if(peek != '*')
                             continue;
+                        readch(br);
+                        if(peek != '/')
+                            continue;
+                        commentOpen = false;
+                        peek = ' ';
                     }
                     continue;
                 }
