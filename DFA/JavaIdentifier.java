@@ -1,3 +1,4 @@
+package DFA;
 public class JavaIdentifier{
     public static boolean scan(String s){
         int state = 0;

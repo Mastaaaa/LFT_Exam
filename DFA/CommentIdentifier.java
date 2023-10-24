@@ -1,3 +1,4 @@
+package DFA;
 public class CommentIdentifier {
     public static boolean scan (String s){
         int i = 0;

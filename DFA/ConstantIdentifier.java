@@ -1,3 +1,4 @@
+package DFA;
 public class ConstantIdentifier {
 
     public static boolean scan(String s){

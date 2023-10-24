@@ -1,5 +1,5 @@
+package Lexer;
 import java.awt.font.NumericShaper;
-
 public class NumberTok extends Token {
     public String lexeme = "";
 

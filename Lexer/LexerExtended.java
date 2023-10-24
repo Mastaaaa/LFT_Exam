@@ -1,11 +1,10 @@
 package Lexer;
 import java.io.*;
-import java.util.*;
-public class Lexer {
+public class LexerExtended {
 
     public static int line = 1;
     private char peek = ' ';
-    
+
     private void readch(BufferedReader br) {
         try {
             peek = (char) br.read();
@@ -14,12 +13,44 @@ public class Lexer {
         }
     }
 
-    public Token lexical_scan(BufferedReader br) {
-        while (peek == ' ' || peek == '\t' || peek == '\n'  || peek == '\r') {
+    public Token lexical_scan_extended(BufferedReader br) {
+
+
+        while (peek == ' ' || peek == '\t' || peek == '\n'  || peek == '\r' || peek == '/') {
             if (peek == '\n') line++;
+            if(peek == '/'){
+                readch(br);
+                if(peek == '*'){
+                    boolean commentOpen = true;
+                    //System.out.print("comments started");
+                    while(commentOpen){
+                        readch(br);
+                        if(peek == '*'){
+                            readch(br);
+                            if(peek == '/'){
+                                commentOpen = false;
+                                peek = ' ';
+                            }
+                            else
+                                continue;
+                        }
+                        else
+                            continue;
+                    }
+                    continue;
+                }
+                else if(peek == '/'){
+                    do{
+                        readch(br);
+                    }while(peek != '\n');
+                    continue;
+                }
+                return Token.div;
+            }
             readch(br);
         }
-        
+        //Handle comments
+
         switch (peek) {
             case '!':
                 peek = ' ';
@@ -51,9 +82,6 @@ public class Lexer {
             case '*':
                 peek = ' ';
                 return Token.mult;
-            case '/':
-                peek = ' ';
-                return Token.div;
             case ';':
                 peek = ' ';
                 return Token.semicolon;
@@ -61,8 +89,7 @@ public class Lexer {
                 peek = ' ';
                 return Token.comma;
 
-	// ... gestire i casi di ( ) [ ] { } + - * / ; , ... //        DONE
-	
+            // ... gestire i casi di ( ) [ ] { } + - * / ; , ... //        DONE
             case '&':
                 readch(br);
                 if (peek != '&') {
@@ -92,7 +119,7 @@ public class Lexer {
                     return Word.ne;
                 }
                 return Word.lt;
-                //TO CHECK: Else delete
+            //TO CHECK: Else delete
 
             case '>':
                 readch(br);
@@ -121,19 +148,23 @@ public class Lexer {
                 peek = ' ';
                 return Word.init;
 
-	        // ... gestire i casi di || < > <= >= == <> ... //             DONE
-          
+            // ... gestire i casi di || < > <= >= == <> ... //             DONE
+
             case (char)-1:
                 return new Token(Tag.EOF);
 
             default:
                 // ... gestire il caso degli identificatori e delle parole chiave //   DONE
                 //Handle case where I read a number and I skip keyword check?
-                if (Character.isLetter(peek)) {
+                if (Character.isLetter(peek) || peek == '_') {
                     String temp = "";
-                    while(Character.isDigit(peek) || Character.isLetter(peek)){
+                    while(Character.isDigit(peek) || Character.isLetter(peek) || peek == '_'){
                         temp += peek;
                         readch(br);
+                    }
+                    if(temp.charAt(0) == '_' && temp.length() < 2){
+                        System.err.println("Identifier can't be only '_'");
+                        return null;
                     }
                     if(temp.equals(Word.assign.lexeme))
                         return Word.assign;
@@ -155,10 +186,13 @@ public class Lexer {
                         return Word.print;
                     if(temp.equals(Word.read.lexeme))
                         return Word.read;
-                    return new Word(Tag.ID, temp);
+                    //return identifier
+                    return new Word(Tag.ID,temp);
 
-                    // ... gestire il caso dei numeri ... //              DONE
-                } else if (Character.isDigit(peek)) {
+
+                }
+                // ... gestire il caso dei numeri ... //              DONE
+                else if (Character.isDigit(peek)) {
                     if(peek == '0'){
                         readch(br);
                         if(Character.isDigit(peek)){
@@ -166,36 +200,39 @@ public class Lexer {
                                     + " after : : "  + peek );
                             return null;
                         }
-                         return new NumberTok(Tag.NUM,"0");
+                        return new NumberTok(Tag.NUM,"0");
                     }
                     String temp = "";
-                    while(Character.isDigit(peek)){
+                    while(peek != ' '){
+                        if(!Character.isDigit(peek)){
+                            System.err.println("Identifier mustn't start by number");
+                            return null;
+                        }
                         temp += peek;
                         readch(br);
                     }
                     return new NumberTok(Tag.NUM, temp);
-
                 }
                 else {
-                        System.err.println("Erroneous character: " 
-                                + peek );
-                        return null;
+                    System.err.println("Erroneous character: "
+                            + peek );
+                    return null;
                 }
-         }
+        }
     }
-		
+
     public static void main(String[] args) {
-        Lexer lex = new Lexer();
+        LexerExtended lex = new LexerExtended();
         String path = "C:\\Users\\danie\\Documents\\Universita'\\Secondo anno\\LFT\\LFT_Exam\\Lexer\\esempio.txt "; // il percorso del file da leggere
         try {
             BufferedReader br = new BufferedReader(new FileReader(path));
             Token tok;
             do {
-                tok = lex.lexical_scan(br);
+                tok = lex.lexical_scan_extended(br);
                 System.out.println("Scan: " + tok);
             } while (tok.tag != Tag.EOF);
             br.close();
-        } catch (IOException e) {e.printStackTrace();}    
+        } catch (IOException e) {e.printStackTrace();}
     }
 
 }
