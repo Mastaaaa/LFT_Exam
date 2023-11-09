@@ -18,11 +18,11 @@ public class LexerExtended {
 
         while (peek == ' ' || peek == '\t' || peek == '\n'  || peek == '\r' || peek == '/') {
             if (peek == '\n') line++;
+            //Handle comments
             if(peek == '/'){
                 readch(br);
                 if(peek == '*'){
                     boolean commentOpen = true;
-                    //System.out.print("comments started");
                     while(commentOpen){
                         readch(br);
                         if(peek != '*')
@@ -45,7 +45,6 @@ public class LexerExtended {
             }
             readch(br);
         }
-        //Handle comments
 
         switch (peek) {
             case '!':
@@ -115,7 +114,6 @@ public class LexerExtended {
                     return Word.ne;
                 }
                 return Word.lt;
-            //TO CHECK: Else delete
 
             case '>':
                 readch(br);

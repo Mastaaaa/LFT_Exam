@@ -1,5 +1,2 @@
-/* /dxvsdrfe4t3456456hgfhj;';'\\''\;././';p[@#$@#!#%%$@#calcolare la velocita‘ */
-assign 300 to d; // distanza
-assign 10 to t; // tempo
-print(* d t)/
+x*/y
 
