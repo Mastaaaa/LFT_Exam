@@ -1,0 +1,1 @@
+assign[3 to numero];assign[numero to albero];print(5)

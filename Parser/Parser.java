@@ -42,20 +42,20 @@ public class Parser {
     private void exprp() {
         if(look == null)
             error("No token for this symbol");
-	switch (look.tag) {
-	    case '+':
-            match('+');
-            term();
-            exprp();
-            break;
-        case '-':
-            match('-');
-            term();
-            exprp();
-            break;
-        default:
-            break;
-	    }
+	    switch (look.tag) {
+            case '+':
+                match('+');
+                term();
+                exprp();
+                break;
+            case '-':
+                match('-');
+                term();
+                exprp();
+                break;
+            default:
+                break;
+        }
     }
 
     private void term() {
