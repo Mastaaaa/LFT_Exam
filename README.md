@@ -73,7 +73,7 @@ Lexer.java has a:
 
 
 ------------------------------------------------------------
-#Second part: Implementig a parser in java. The purpose is to analyze a sequence of generated tokens.
+#Third part: Implementig a parser in java. The purpose is to analyze a sequence of generated tokens.
 ------------------------------------------------------------
 
 Parser.java analyzes a sequence of tokens and return ok if they belong to the grammar of simple aritmetic expressions such as: x + 3
