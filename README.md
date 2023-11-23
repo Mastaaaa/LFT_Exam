@@ -69,6 +69,14 @@ Lexer.java has a:
 
   LexerExtended.java implements correct identifier format(Not starting by number and differnt from '_') and is now able to analyze comments: everything in the comment is skipped by the lexer and no token is
   generated even symbols does not belog to the alphabet.<br />
-  
 
+
+
+------------------------------------------------------------
+#Second part: Implementig a parser in java. The purpose is to analyze a sequence of generated tokens.
+------------------------------------------------------------
+
+Parser.java analyzes a sequence of tokens and return ok if they belong to the grammar of simple aritmetic expressions such as: x + 3
+
+PorgramParser.java analyzes a sequence of tokens and return ok if they belong to the grammar of program instructions such as : assign(3 to x)
 
