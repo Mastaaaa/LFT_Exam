@@ -1,4 +1,4 @@
-# LFT_Exam
+# Developing a Translator
 
 #First part: Implementig DFA in java
 ------------------------------------------------------------
