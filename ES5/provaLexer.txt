@@ -1,0 +1,1 @@
+assign[10 to y]; for(> y 0) do { assign [- y 1 to y]; print(y) }
